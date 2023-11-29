@@ -21,6 +21,9 @@ jobs:
           path: .cache
       
       - run: pip install mkdocs-material
+      - run: pwd
+      - run: cd .
+      - run: ls
       - run: python -c "import sys; print(sys.path)"
       - run: python -c "import docs.extensions.func_args"
       - run: mkdocs gh-deploy --force --verbose

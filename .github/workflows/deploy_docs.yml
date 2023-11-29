@@ -9,7 +9,7 @@ permissions:
 
 jobs:
   deploy:
-    runs-on: ubuntu-latest
+    runs-on: windows-latest
     steps:
       - uses: actions/checkout@v3
       - uses: actions/setup-python@v4
@@ -21,8 +21,6 @@ jobs:
           path: .cache
       
       - run: pip install mkdocs-material
-      - run: export PYTHONPATH=$PYTHONPATH:$(pwd)
-      - run: export PYTHONHOME=$PYTHONHOME:$(pwd)
       - run: python -c "import sys; print(sys.path)"
       - run: python -c "import docs.extensions.func_args"
       - run: mkdocs gh-deploy --force --verbose

@@ -20,8 +20,7 @@ jobs:
           key: ${{ github.ref }}
           path: .cache
 
-      - run: pip install mkdocs
       - run: pip install mkdocs-material
       - run: python -c "import sys; print(sys.path)"
       - run: python -c "import docs.extensions.func_args"
-      - run: mkdocs gh-deploy --force --verbose
+      - run: python -m mkdocs gh-deploy --force --verbose

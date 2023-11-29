@@ -20,5 +20,9 @@ jobs:
           key: ${{ github.ref }}
           path: .cache
 
+      - run: pwd
       - run: pip install mkdocs-material
-      - run: python -m mkdocs gh-deploy --force
+      #- run: python -m mkdocs gh-deploy --force
+      # Adds Environment Path
+      - run: echo "PYTHONPATH=/home/runner/work/mkdocs-testing/mkdocs-testing/" >> $GITHUB_ENV
+      - run: mkdocs gh-deploy --force
